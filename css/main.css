@@ -3,7 +3,7 @@ body {
 
 /*Header Style*/
 header {
-  background: url("../images/da-img-1.jpg") no-repeat center center;
+  background: url("../images/da-img-1.png") no-repeat center center;
   position: relative;
   height: 100vh;
   min-height: 600px;
@@ -152,3 +152,8 @@ a.credit {
 /*Common Style*/
 .da-section {
   padding: 100px 0; }
+
+.custom-heading {
+    color: blue; /* This will override the default Bootstrap color */
+}
+
