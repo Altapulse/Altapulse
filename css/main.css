@@ -156,4 +156,75 @@ a.credit {
 .custom-heading {
     color: blue; /* This will override the default Bootstrap color */
 }
+/* Partners Section Style */
+.partners-section {
+  text-align: center;
+  padding: 50px;
+  padding-top: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.partners-section h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.partners-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.partner-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.partner-card img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.partner-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.partner-card:hover {
+  transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+  .partner-card {
+    width: 120px;
+  }
+
+  .partners-container {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .partners-container {
+    flex-direction: column;
+  }
+
+  .partner-card {
+    width: 100%;
+  }
+}
 
