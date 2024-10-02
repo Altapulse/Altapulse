@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 
 // CORS configuration to allow requests from the frontend URL
 const corsOptions = {
-  origin: "https://altapulse-react-altapulses-projects.vercel.app", // Your Vercel frontend URL
+  origin: "https://altapulse-react-c8ei.vercel.app/", // Your Vercel frontend URL
   credentials: true,
 };
 
