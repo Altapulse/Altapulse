@@ -29,12 +29,10 @@ app.post("/api/contact", async (req, res) => {
       },
     });
 
-    res
-      .status(201)
-      .json({
-        message: "Quote request submitted successfully",
-        data: newMessage,
-      });
+    res.status(201).json({
+      message: "Quote request submitted successfully",
+      data: newMessage,
+    });
   } catch (err) {
     console.error("Error occurred while submitting the message:", err);
     res.status(500).json({ message: "Failed to submit quote request" });
