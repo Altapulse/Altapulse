@@ -5,7 +5,13 @@ const cors = require("cors");
 const app = express();
 const prisma = new PrismaClient();
 
-app.use(cors()); // Enable CORS to allow communication between frontend and backend
+// CORS configuration to allow requests from the frontend URL
+const corsOptions = {
+  origin: "https://altapulse-react-altapulses-projects.vercel.app", // Your Vercel frontend URL
+  credentials: true,
+};
+
+app.use(cors(corsOptions)); // Enable CORS with the specified options
 app.use(express.json());
 
 // POST request to handle form submission
@@ -39,6 +45,19 @@ app.post("/api/contact", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("Server is running on http://localhost:3000");
+// Sample GET route for testing
+app.get("/api/test", (req, res) => {
+  res.status(200).json({ message: "Test route is working!" });
+});
+
+// Centralized error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: "Something went wrong!" });
+});
+
+// Start the server
+const PORT = process.env.PORT || 3000; // Use Render's port or fallback to 3000
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
