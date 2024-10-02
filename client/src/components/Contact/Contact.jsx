@@ -65,13 +65,16 @@ const Contact = () => {
     } else {
       try {
         // Make the POST request to the backend
-        const response = await fetch("http://localhost:3000/api/contact", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        });
+        const response = await fetch(
+          "https://altapulse-backend.onrender.com/api/contact",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          }
+        );
 
         if (response.ok) {
           toast.success("Message sent successfully!", {
