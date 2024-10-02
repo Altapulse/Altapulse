@@ -10,6 +10,8 @@ import {
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Set up the marker icon
 delete L.Icon.Default.prototype._getIconUrl;
@@ -28,9 +30,8 @@ const Contact = () => {
     "Saranga Compact Homes, F-108, Walajabad Road, Padappai, Karanaithangal, Tamil Nadu 602105";
   const lat = 12.8698317;
   const lng = 79.9750436;
-
-  // Provided Google Maps URL
   const googleMapsUrl = "https://maps.app.goo.gl/kda8VPaUxb1nxWnJ7";
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -41,13 +42,11 @@ const Contact = () => {
 
   const [errors, setErrors] = useState({});
 
-  // Handle input change
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [id]: value }));
   };
 
-  // Validate form
   const validateForm = () => {
     const newErrors = {};
     if (!formData.firstName) newErrors.firstName = "First name is required";
@@ -58,7 +57,6 @@ const Contact = () => {
     return newErrors;
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent the default form submission
     const newErrors = validateForm();
@@ -68,7 +66,6 @@ const Contact = () => {
       try {
         // Make the POST request to the backend
         const response = await fetch("http://localhost:3000/api/contact", {
-          // Adjust the URL if necessary
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -77,7 +74,17 @@ const Contact = () => {
         });
 
         if (response.ok) {
-          alert("Message sent successfully!");
+          toast.success("Message sent successfully!", {
+            icon: "✅",
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
           setFormData({
             firstName: "",
             lastName: "",
@@ -86,27 +93,48 @@ const Contact = () => {
             message: "",
           });
         } else {
-          alert("Failed to send message. Please try again.");
+          toast.error("Failed to send message. Please try again.", {
+            icon: "❌",
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
         }
       } catch (error) {
-        alert("An error occurred. Please try again.");
+        toast.error("An error occurred. Please try again.", {
+          icon: "❌",
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       }
     }
   };
 
   return (
     <div className="2xl:container mx-auto py-8 px-4">
+      {/* Toast container */}
+      <ToastContainer />
       <div className=" w-[90%] mx-auto py-28">
-      <div className="text-center mb-12">
-        <h2 className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">
-          Get in Touch
-        </h2>
-        <p className="font-normal text-lg sm:text-xl md:text-2xl lg:text-xl">
-          Expand your network with us
-        </p>
-      </div>
+        <div className="text-center mb-12">
+          <h2 className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">
+            Get in Touch
+          </h2>
+          <p className="font-normal text-lg sm:text-xl md:text-2xl lg:text-xl">
+            Expand your network with us
+          </p>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        
           {/* Map section */}
           <div className="w-full ">
             <div className="flex flex-col gap-6">
