@@ -1,9 +1,11 @@
 {
+  
   "name": "altapulse-website",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+   
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
@@ -33,7 +35,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
-    "@types/babel__traverse": "^7.20.0",  
+    "@types/babel__traverse": "^7.20.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
