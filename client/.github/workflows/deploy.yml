@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - main
+      - React-Sample-Deploy
 
 jobs:
   build:
@@ -16,6 +16,8 @@ jobs:
 
       - name: Setup Node
         uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Specify the Node.js version you want
 
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
@@ -33,7 +35,7 @@ jobs:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/React-Sample-Deploy'  # Check against the correct branch
 
     steps:
       - name: Download artifact
