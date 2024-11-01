@@ -16,6 +16,33 @@
     <link href="css/aos.css?ver=1.2.0" rel="stylesheet">
     <link href="css/ekko-lightbox.css?ver=1.2.0" rel="stylesheet">
     <link href="css/main.css?ver=1.2.0" rel="stylesheet">
+    <script> 
+      const fbLoginCallback = (response) => {
+  if (response.authResponse) {
+    const code = response.authResponse.code;
+  }
+}
+
+
+const launchWhatsAppSignup = () => {
+  FB.login(fbLoginCallback, {
+    config_id: '1227552545260431',
+    response_type: 'code',
+    override_default_response_type: true, "response_type" will take precedence over the default types
+    extras: {
+      setup: {},
+      featureType: '',
+      sessionInfoVersion: '2',
+    }
+  });
+      }
+
+    </script>
+    <script>
+  window.addEventListener('message', (event) => {
+    /* store the data from this event in local state */
+  });
+    </script>
    
   </head>
   
