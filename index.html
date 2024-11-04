@@ -17,75 +17,59 @@
     <link href="css/ekko-lightbox.css?ver=1.2.0" rel="stylesheet">
     <link href="css/main.css?ver=1.2.0" rel="stylesheet">
 
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1540925303218662'); 
-    fbq('track', 'PageView');
-  </script>
-    <script>
-    window.fbAsyncInit = function () {
-      FB.init({
-        appId:    '1540925303218662', 
-        cookie:   true, 
-        xfbml:    true, 
-        version:  'v21.0' 
-      });
-    };
+  <script>
+  window.fbAsyncInit = function () {
+    // JavaScript SDK configuration and setup
+    FB.init({
+      appId:    '1540925303218662', 
+      cookie:   true, 
+      xfbml:    true, 
+      version:  'v21.0' 
+    });
+  };
 
-    // Load the Facebook SDK asynchronously
-    (function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "https://connect.facebook.net/en_US/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+  // Load the JavaScript SDK asynchronously
+  (function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
 
-    // Facebook Login with JavaScript SDK
-    function launchWhatsAppSignup() {
-      // Check if fbq is defined before using it
-      if (typeof fbq !== 'undefined') {
-        fbq('trackCustom', 'WhatsAppOnboardingStart', {appId: '1540925303218662', feature: 'whatsapp_embedded_signup'});
-      } else {
-        console.error('Facebook Pixel not loaded yet.');
+  // Facebook Login with JavaScript SDK
+  function launchWhatsAppSignup() {
+    // Conversion tracking code
+    fbq && fbq('trackCustom', 'WhatsAppOnboardingStart', {appId: '1540925303218662', feature: 'whatsapp_embedded_signup'});
+    
+    // Launch Facebook login
+    FB.login(function (response) {
+      if (response.authResponse) {
+        const code = response.authResponse.code;
+             } else {
+        console.log('User cancelled login or did not fully authorize.');
       }
-      
-      // Launch Facebook login
-      FB.login(function (response) {
-        if (response.authResponse) {
-          console.log('User logged in successfully');
-          // Handle successful login here
-        } else {
-          console.log('User cancelled login or did not fully authorize.');
-        }
-      }, {
-        config_id: '1227552545260431', // configuration ID 
-        response_type: 'code',   
-        override_default_response_type: true,
-        extras: {
-          setup: {
+    }, {
+      config_id: '1227552545260431', // configuration ID 
+      response_type: 'code',   
+      override_default_response_type: true,
+      extras: {
+        setup: {
             "business": {
-              "id": null,
-              "phone": {},
-              "address": {},
-              "timezone": null
-            },  
-            "phone": {
-              "category": null,
-              "description": ""
-            }
-          }
+    	    "id": null,
+    	    "phone": {},
+    	    "address": {},
+    	    "timezone": null
+  		},	
+  	    "phone": {
+    	    "category": null,
+    	    "description": ""
+  		}
         }
-      });
-    }
-  </script>
+      }
+    });
+  }
+</script>
   </head>
   
   <body id="top">
