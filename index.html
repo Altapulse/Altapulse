@@ -44,35 +44,23 @@ const launchWhatsAppSignup = () => {
   });
     </script> -->
 
-    <!-- Load Facebook SDK for JavaScript -->
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+ <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '1227552545260431', 
+                cookie     : true,
+                xfbml      : true,
+                version    : 'v12.0' // Use the latest version
+            });
+        };
 
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '1227552545260431', 
-          cookie     : true,
-          xfbml      : true,
-          version    : 'v12.0'
-        });
-      };
-
-      const fbLoginCallback = (response) => {
-        if (response.authResponse) {
-          console.log('User logged in:', response);
-          const code = response.authResponse.accessToken;
-          // Handle the response as needed
-        } else {
-          console.log('User cancelled login or did not fully authorize.');
-        }
-      };
-
-      const launchWhatsAppSignup = () => {
-        FB.login(fbLoginCallback, {
-          scope: 'public_profile,email',
-          auth_type: 'rerequest'
-        });
-      };
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
     </script>
    
   </head>
@@ -506,5 +494,27 @@ const launchWhatsAppSignup = () => {
     <script src="scripts/aos.js?ver=1.2.0"></script>
     <script src="scripts/ekko-lightbox.min.js?ver=1.2.0"></script>
     <script src="scripts/main.js?ver=1.2.0"></script>
+
+      <script>
+        const fbLoginCallback = (response) => {
+            if (response.authResponse) {
+                console.log('User logged in:', response);
+                // Handle successful login here
+            } else {
+                console.log('User cancelled login or did not fully authorize.');
+            }
+        };
+
+        const launchWhatsAppSignup = () => {
+            FB.login(fbLoginCallback, {
+                scope: 'public_profile,email', // Request necessary permissions
+                auth_type: 'reauthenticate' // Request fresh login
+            });
+        };
+
+        window.addEventListener('message', (event) => {
+    // store the data from this event in local state
+    });
+    </script>
   </body>
 </html>
