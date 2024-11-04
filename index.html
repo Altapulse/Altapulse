@@ -44,8 +44,6 @@ const launchWhatsAppSignup = () => {
   });
     </script> -->
    <script>
-        let fbSdkReady = false; // Flag to track SDK readiness
-
         window.fbAsyncInit = function() {
             FB.init({
                 appId      : '1227552545260431', // Replace with your Facebook App ID
@@ -53,8 +51,8 @@ const launchWhatsAppSignup = () => {
                 xfbml      : true,
                 version    : 'v12.0' // Use the latest version
             });
-            fbSdkReady = true; // Mark SDK as ready
-            document.getElementById('facebook-login-button').disabled = false; // Enable the button
+            // Enable the button when the SDK is ready
+            document.getElementById('facebook-login-button').disabled = false; 
         };
 
         (function(d, s, id) {
@@ -64,6 +62,23 @@ const launchWhatsAppSignup = () => {
             js.src = "https://connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
+
+        const fbLoginCallback = (response) => {
+            if (response.authResponse) {
+                console.log('Welcome! Fetching your information.... ');
+                FB.api('/me', function(response) {
+                    console.log('Good to see you, ' + response.name + '.');
+                });
+            } else {
+                console.log('User cancelled login or did not fully authorize.');
+            }
+        };
+
+        const launchWhatsAppSignup = () => {
+            FB.login(fbLoginCallback, {
+                scope: 'public_profile,email' // Request necessary permissions
+            });
+        };
     </script>
    
   </head>
@@ -81,7 +96,10 @@ const launchWhatsAppSignup = () => {
               <li class="nav-item"><a class="nav-link smooth-scroll" href="#gallery">Gallery</a></li>
               <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">Contact</a></li>
             </ul>
-            <button id="facebook-login-button" style="background-color: #1877f2; border: 0; border-radius: 4px; color: #fff; cursor: pointer; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; height: 40px; padding: 0 24px;" disabled>Login with Facebook</button>
+            <button id="facebook-login-button" 
+            onclick="launchWhatsAppSignup()" 
+            style="background-color: #1877f2; border: 0; border-radius: 4px; color: #fff; cursor: pointer; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; height: 40px; padding: 0 24px;" 
+            disabled>Login with Facebook</button>
                 </div>
         </nav>
       </div>
@@ -497,37 +515,7 @@ const launchWhatsAppSignup = () => {
     <script src="scripts/aos.js?ver=1.2.0"></script>
     <script src="scripts/ekko-lightbox.min.js?ver=1.2.0"></script>
     <script src="scripts/main.js?ver=1.2.0"></script>
-    <script>
-        const fbLoginCallback = (response) => {
-            if (response.authResponse) {
-                console.log('User logged in:', response);
-                // Handle successful login here
-            } else {
-                console.log('User cancelled login or did not fully authorize.');
-            }
-        };
-
-        const launchWhatsAppSignup = () => {
-            if (fbSdkReady) {
-                FB.login(fbLoginCallback, {
-                    scope: 'public_profile,email', // Request necessary permissions
-                    auth_type: 'reauthenticate' // Request fresh login
-                });
-            } else {
-                console.error('Facebook SDK not loaded');
-            }
-        };
-
-        // Add event listener for messages
-        window.addEventListener('message', (event) => {
-            // Store the data from this event in local state
-            console.log('Message received:', event.data);
-            // You can handle the data as needed here
-        });
-
-        // Attach click event to button once the SDK is initialized
-        document.getElementById('facebook-login-button').addEventListener('click', launchWhatsAppSignup);
-    </script>
+    
 
   </body>
 </html>
