@@ -51,8 +51,7 @@ const launchWhatsAppSignup = () => {
                 xfbml      : true,
                 version    : 'v12.0' // Use the latest version
             });
-            // Enable the button when the SDK is ready
-            document.getElementById('facebook-login-button').disabled = false; 
+           
         };
 
         (function(d, s, id) {
@@ -98,8 +97,7 @@ const launchWhatsAppSignup = () => {
             </ul>
             <button id="facebook-login-button" 
             onclick="launchWhatsAppSignup()" 
-            style="background-color: #1877f2; border: 0; border-radius: 4px; color: #fff; cursor: pointer; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; height: 40px; padding: 0 24px;" 
-            disabled>Login with Facebook</button>
+            style="background-color: #1877f2; border: 0; border-radius: 4px; color: #fff; cursor: pointer; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; height: 40px; padding: 0 24px;">Login with Facebook</button>
                 </div>
         </nav>
       </div>
