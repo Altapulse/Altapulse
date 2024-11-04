@@ -16,6 +16,19 @@
     <link href="css/aos.css?ver=1.2.0" rel="stylesheet">
     <link href="css/ekko-lightbox.css?ver=1.2.0" rel="stylesheet">
     <link href="css/main.css?ver=1.2.0" rel="stylesheet">
+
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID'); // Replace 'YOUR_PIXEL_ID' with your actual Pixel ID
+    fbq('track', 'PageView');
+  </script>
     <script>
     window.fbAsyncInit = function () {
       FB.init({
@@ -37,6 +50,13 @@
 
     // Facebook Login with JavaScript SDK
     function launchWhatsAppSignup() {
+      // Check if fbq is defined before using it
+      if (typeof fbq !== 'undefined') {
+        fbq('trackCustom', 'WhatsAppOnboardingStart', {appId: '1540925303218662', feature: 'whatsapp_embedded_signup'});
+      } else {
+        console.error('Facebook Pixel not loaded yet.');
+      }
+      
       // Launch Facebook login
       FB.login(function (response) {
         if (response.authResponse) {
