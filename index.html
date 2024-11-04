@@ -16,7 +16,7 @@
     <link href="css/aos.css?ver=1.2.0" rel="stylesheet">
     <link href="css/ekko-lightbox.css?ver=1.2.0" rel="stylesheet">
     <link href="css/main.css?ver=1.2.0" rel="stylesheet">
-<!--     <script> 
+    <script> 
       const fbLoginCallback = (response) => {
   if (response.authResponse) {
     const code = response.authResponse.code;
@@ -42,43 +42,8 @@ const launchWhatsAppSignup = () => {
   window.addEventListener('message', (event) => {
     /* store the data from this event in local state */
   });
-    </script> -->
-   <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId      : '1227552545260431', // Replace with your Facebook App ID
-                cookie     : true,
-                xfbml      : true,
-                version    : 'v12.0' // Use the latest version
-            });
-           
-        };
-
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-
-        const fbLoginCallback = (response) => {
-            if (response.authResponse) {
-                console.log('Welcome! Fetching your information.... ');
-                FB.api('/me', function(response) {
-                    console.log('Good to see you, ' + response.name + '.');
-                });
-            } else {
-                console.log('User cancelled login or did not fully authorize.');
-            }
-        };
-
-        const launchWhatsAppSignup = () => {
-            FB.login(fbLoginCallback, {
-                scope: 'public_profile,email' // Request necessary permissions
-            });
-        };
     </script>
+  
    
   </head>
   
