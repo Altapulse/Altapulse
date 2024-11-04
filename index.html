@@ -43,7 +43,7 @@ const launchWhatsAppSignup = () => {
     /* store the data from this event in local state */
   });
     </script> -->
-  <script>
+<!--   <script>
         window.fbAsyncInit = function() {
             FB.init({
                 appId      : '1540925303218662', 
@@ -83,7 +83,57 @@ const launchWhatsAppSignup = () => {
                 console.error('Facebook SDK not loaded yet.');
             }
         };
+    </script> -->
+        <script>
+        let fbLoaded = false; // Flag to check if SDK is loaded
+
+        window.fbAsyncInit = function() {
+            console.log('SDK loaded');
+            FB.init({
+                appId: ‘1540925303218662’
+                cookie: true,
+                xfbml: true,
+                version: 'v12.0' 
+            });
+            fbLoaded = true;
+            console.log('FB initialized', FB); 
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            js.onload = function() {
+                console.log('SDK script loaded successfully.');            };
+            js.onerror = function() {
+                console.error('Error loading SDK script.'); 
+            };
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        const launchWhatsAppSignup = () => {
+            if (!fbLoaded) { // Check if SDK is loaded
+                console.error('Facebook SDK not loaded yet.');
+                return;
+            }
+
+            FB.login(function(response) {
+                if (response.authResponse) {
+                    console.log('Welcome!  Fetching your information.... ');
+                    FB.api('/me', function(response) {
+                        console.log('Good to see you, ' + response.name + '.');
+                    });
+                } else {
+                    console.log('User cancelled login or did not fully authorize.');
+                }
+            }, {
+                scope: 'email', 
+                auth_type: 'reauthenticate' 
+            });
+        };
     </script>
+
+
    
   </head>
   
