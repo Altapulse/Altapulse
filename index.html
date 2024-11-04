@@ -44,6 +44,8 @@ const launchWhatsAppSignup = () => {
   });
     </script> -->
    <script>
+        let fbSdkReady = false; // Flag to track SDK readiness
+
         window.fbAsyncInit = function() {
             FB.init({
                 appId      : '1227552545260431', // Replace with your Facebook App ID
@@ -51,9 +53,8 @@ const launchWhatsAppSignup = () => {
                 xfbml      : true,
                 version    : 'v12.0' // Use the latest version
             });
-
-            // Enable the button after the SDK is initialized
-            document.getElementById('facebook-login-button').disabled = false;
+            fbSdkReady = true; // Mark SDK as ready
+            document.getElementById('facebook-login-button').disabled = false; // Enable the button
         };
 
         (function(d, s, id) {
@@ -80,7 +81,7 @@ const launchWhatsAppSignup = () => {
               <li class="nav-item"><a class="nav-link smooth-scroll" href="#gallery">Gallery</a></li>
               <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">Contact</a></li>
             </ul>
-            <button onclick="launchWhatsAppSignup()" id="facebook-login-button" style="background-color: #1877f2; border: 0; border-radius: 4px; color: #fff; cursor: pointer; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; height: 40px; padding: 0 24px;" disabled>Login with Facebook</button>
+            <button id="facebook-login-button" style="background-color: #1877f2; border: 0; border-radius: 4px; color: #fff; cursor: pointer; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; height: 40px; padding: 0 24px;" disabled>Login with Facebook</button>
                 </div>
         </nav>
       </div>
@@ -507,7 +508,7 @@ const launchWhatsAppSignup = () => {
         };
 
         const launchWhatsAppSignup = () => {
-            if (typeof FB !== 'undefined') {
+            if (fbSdkReady) {
                 FB.login(fbLoginCallback, {
                     scope: 'public_profile,email', // Request necessary permissions
                     auth_type: 'reauthenticate' // Request fresh login
