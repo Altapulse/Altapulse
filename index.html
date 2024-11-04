@@ -51,6 +51,9 @@ const launchWhatsAppSignup = () => {
                 xfbml      : true,
                 version    : 'v12.0' // Use the latest version
             });
+
+            // Enable the button after the SDK is initialized
+            document.getElementById('facebook-login-button').disabled = false;
         };
 
         (function(d, s, id) {
@@ -77,8 +80,8 @@ const launchWhatsAppSignup = () => {
               <li class="nav-item"><a class="nav-link smooth-scroll" href="#gallery">Gallery</a></li>
               <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">Contact</a></li>
             </ul>
-            <button onclick="launchWhatsAppSignup()" style="background-color: #1877f2; border: 0; border-radius: 4px; color: #fff; cursor: pointer; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; height: 40px; padding: 0 24px;">Login with Facebook</button>
-          </div>
+            <button id="facebook-login-button" style="background-color: #1877f2; border: 0; border-radius: 4px; color: #fff; cursor: pointer; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; height: 40px; padding: 0 24px;" disabled>Login with Facebook</button>
+                </div>
         </nav>
       </div>
       <div class="da-home-page-text flex-grow-1 d-flex align-items-center" data-aos="fade-right" data-aos-duration="1000">
@@ -521,8 +524,8 @@ const launchWhatsAppSignup = () => {
             // You can handle the data as needed here
         });
 
-        // Attach click event to button
-        document.getElementById('facebook-login-button').onclick = launchWhatsAppSignup;
+        // Attach click event to button once the SDK is initialized
+        document.getElementById('facebook-login-button').addEventListener('click', launchWhatsAppSignup);
     </script>
 
   </body>
