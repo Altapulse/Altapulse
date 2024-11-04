@@ -16,75 +16,6 @@
     <link href="css/aos.css?ver=1.2.0" rel="stylesheet">
     <link href="css/ekko-lightbox.css?ver=1.2.0" rel="stylesheet">
     <link href="css/main.css?ver=1.2.0" rel="stylesheet">
-<!--     <script> 
-      const fbLoginCallback = (response) => {
-  if (response.authResponse) {
-    const code = response.authResponse.code;
-  }
-}
-
-
-const launchWhatsAppSignup = () => {
-  FB.login(fbLoginCallback, {
-    config_id: '1227552545260431',
-    response_type: 'code',
-    override_default_response_type: true, "response_type" will take precedence over the default types
-    extras: {
-      setup: {},
-      featureType: '',
-      sessionInfoVersion: '2',
-    }
-  });
-      }
-
-    </script>
-    <script>
-  window.addEventListener('message', (event) => {
-    /* store the data from this event in local state */
-  });
-    </script> -->
-<!--   <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId      : '1540925303218662', 
-                cookie     : true,
-                xfbml      : true,
-                version    : 'v12.0' // Use the latest version
-            });
-          console.log('Facebook SDK loaded and initialized.');
-        };
-
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-
-        const fbLoginCallback = (response) => {
-            if (response.authResponse) {
-                console.log('Welcome! Fetching your information.... ');
-                FB.api('/me', function(response) {
-                    console.log('Good to see you, ' + response.name + '.');
-                });
-            } else {
-                console.log('User cancelled login or did not fully authorize.');
-            }
-        };
-
-        const launchWhatsAppSignup = () => {
-            // Ensure FB is defined before calling FB.login
-            if (typeof FB !== 'undefined') {
-                FB.login(fbLoginCallback, {
-                    scope: 'public_profile,email' // Request necessary permissions
-                });
-            } else {
-                console.error('Facebook SDK not loaded yet.');
-            }
-        };
-    </script> -->
-
     <script>
   window.fbAsyncInit = function () {
     // JavaScript SDK configuration and setup
@@ -138,9 +69,6 @@ const launchWhatsAppSignup = () => {
     });
   }
 </script>
-
-
-   
   </head>
   
   <body id="top">
