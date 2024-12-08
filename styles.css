@@ -1,93 +1,5 @@
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    background-color: #e0f7fa;
-    color: #333;
-}
-
-/* Container Styling */
-.container {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 25px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-top: 5px solid #007bff;
-}
-
-/* Heading Styles */
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #007bff;
-    font-size: 2.5em;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-h2 {
-    margin-top: 30px;
-    color: #0056b3;
-    font-size: 1.8em;
-    border-bottom: 2px solid #00bcd4;
-    padding-bottom: 5px;
-}
-
-/* Paragraph and List Styles */
-p, ul {
-    margin: 10px 0;
-    color: #555;
-    font-size: 1.1em;
-}
-
-ul {
-    list-style-type: disc;
-    margin-left: 20px;
-}
-
-/* Link Styling */
-a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-a:hover {
-    color: #0056b3;
-    text-decoration: underline;
-}
-
-/* Special Styling for Important Elements */
-strong {
-    color: #004085;
-}
-
-/* Button Styling */
-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 1.1em;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-
-/* Responsive Design */
+/* 
+Responsive Design */ 
 @media (max-width: 768px) {
     .container {
         padding: 15px;
@@ -101,3 +13,169 @@ button:hover {
         font-size: 1.5em;
     }
 }
+
+  
+  .pricing-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap; /* For responsiveness */
+    margin: 40px;
+    gap: 20px; /* Space between cards */
+  }
+  
+  .plan {
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    background: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .plan:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .plan img {
+    max-width: 100%;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 20px; /* Space between image and heading */
+  }
+  
+  .plan h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  .plan p {
+    margin: 10px 0;
+    color: #666;
+  }
+  
+  .plan ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    text-align: left;
+  }
+  
+  .plan ul li {
+    position: relative;
+    padding-left: 20px;
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  /* Custom Bullet Points */
+  .plan.basic-plan ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: green; /* Same as basic-plan border-top color */
+    font-size: 1.2em;
+    line-height: 1;
+  }
+  
+  .plan.teams-plan ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: blue; /* Same as teams-plan border-top color */
+    font-size: 1.2em;
+    line-height: 1;
+  }
+  
+  .plan.pro-plan ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: gold; /* Same as pro-plan border-top color */
+    font-size: 1.2em;
+    line-height: 1;
+  }
+  
+  .plan .price {
+    font-size: 1.2em;
+    color: #000;
+    margin: 20px 0;
+  }
+  
+  .plan button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background-color 0.3s;
+  }
+  
+  .plan button:hover {
+    background-color: #0056b3;
+  }
+  
+  .plan .note {
+    font-size: 0.9em;
+    color: #999;
+    margin-top: 10px;
+  }
+  
+  /* Plan Specific Styles */
+  .basic-plan {
+    border-top: 5px solid green;
+  }
+  
+  .teams-plan {
+    border-top: 5px solid blue;
+  }
+  
+  .pro-plan {
+    border-top: 5px solid gold;
+    background: #fff8e1; /* Light gold background to highlight */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Optional: Add a highlight background for Pro Plan */
+  .pro-plan .highlight-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 215, 0, 0.1); /* Semi-transparent gold */
+    border-radius: 8px;
+    z-index: -1;
+  }
+  
+  /* Badge Styling */
+  .pro-plan .badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: gold;
+    color: #333;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1000px) {
+    .pricing-section {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .plan {
+      width: 80%;
+    }
+  }
+  
