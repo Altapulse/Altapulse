@@ -13,7 +13,8 @@ Responsive Design */
         font-size: 1.5em;
     }
 }
-
+/* 
+Partner Zone */
   .container .row .col-4 img {
     filter: grayscale(100%); 
     transition: filter 0.3s ease; 
