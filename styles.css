@@ -13,7 +13,15 @@ Responsive Design */
         font-size: 1.5em;
     }
 }
-
+.container .row .col-4 img {
+    filter: grayscale(100%); /* Makes the image black and white */
+    transition: filter 0.3s ease; /* Smooth transition effect */
+  }
+  
+  /* Hover effect to restore the original color */
+  .container .row .col-4 img:hover {
+    filter: grayscale(0%); /* Restores the original color */
+  }
   
   .pricing-section {
     display: flex;
