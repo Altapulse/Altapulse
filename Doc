@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Documentation Index</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .software-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .software-list li {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
+            padding: 15px;
+            transition: transform 0.2s ease;
+        }
+
+        .software-list li:hover {
+            transform: scale(1.02);
+        }
+
+        .software-list a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+        }
+
+        .software-list a:hover {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Software Documentation Index</h1>
+        <p>Find the documentation for all our software in one place.</p>
+    </header>
+
+    <div class="container">
+        <ul class="software-list">
+            <li><a href="software1-docs.html">Software 1 Documentation</a></li>
+            <li><a href="software2-docs.html">Software 2 Documentation</a></li>
+            <li><a href="software3-docs.html">Software 3 Documentation</a></li>
+            <li><a href="software4-docs.html">Software 4 Documentation</a></li>
+            <li><a href="software5-docs.html">Software 5 Documentation</a></li>
+        </ul>
+    </div>
+</body>
+</html>
