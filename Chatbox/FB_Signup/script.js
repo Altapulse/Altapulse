@@ -19,6 +19,44 @@
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
 
+      // Event listener
+      window.addEventListener('message', (event) => {
+        if (event.origin !== "https://www.facebook.com" && event.origin !== "https://web.facebook.com") {
+          return;
+        }
+        try {
+          const data = JSON.parse(event.data);
+          if (data.type === 'WA_EMBEDDED_SIGNUP') {
+            // if user finishes the Embedded Signup flow
+            if (data.event === 'FINISH') {
+              const {phone_number_id, waba_id} = data.data;
+              console.log("Phone number ID ", phone_number_id, " WhatsApp business account ID ", waba_id);
+              // if user cancels the Embedded Signup flow
+            } else if (data.event === 'CANCEL') {
+              const {current_step} = data.data;
+              console.warn("Cancel at ", current_step);
+              // if user reports an error during the Embedded Signup flow
+            } else if (data.event === 'ERROR') {
+              const {error_message} = data.data;
+              console.error("error ", error_message);
+            }
+          }
+          document.getElementById("session-info-response").textContent = JSON.stringify(data, null, 2);
+        } catch {
+          console.log('Non JSON Responses', event.data);
+        }
+      });
+
+      //login callback
+      const fbLoginCallback = (response) => {
+        if (response.authResponse) {
+          const code = response.authResponse.code;
+          // The returned code must be transmitted to your backend first and then
+          // perform a server-to-server call from there to our servers for an access token.
+        }
+        document.getElementById("sdk-response").textContent = JSON.stringify(response, null, 2);
+      }
+
       // Function to handle button click
       function launchWhatsAppSignup() {
         console.log("Button clicked");
