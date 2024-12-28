@@ -69,3 +69,37 @@
           }
         }, { scope: 'public_profile,email' }); // Request additional permissions as needed
       }
+
+      
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+        });
+
+        function launchWhatsAppSignup() {
+            // Check if FB is defined and initialized
+            if (typeof FB === 'undefined') {
+              console.error("Facebook SDK not loaded yet.");
+              return;
+            }
+      
+            // Launch Facebook login
+            FB.login(function(response) {
+              if (response.authResponse) {
+                console.log('User logged in successfully');
+                const code = response.authResponse.code;
+                // Handle successful login here (e.g., send `code` to your backend if needed)
+              } else {
+                console.log('User cancelled login or did not fully authorize.');
+              }
+            }, {
+              config_id: '1315986066086999', // configuration ID
+              response_type: 'code',
+              override_default_response_type: true,
+              extras: {
+                setup: {
+                  "business": { "id": null, "phone": {}, "address": {}, "timezone": null },
+                  "phone": { "category": null, "description": "" }
+                }
+              }
+            });
+          }
