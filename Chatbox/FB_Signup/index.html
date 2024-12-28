@@ -6,91 +6,92 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ALTAPULSE</title> 
-    
-<button onclick="launchWhatsAppSignup()" 
-style="background-color: #1877f2; border: 0; border-radius: 4px; color: #fff; cursor: pointer; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; height: 40px; padding: 0 24px;">
-Login with Facebook
-</button>
 
-<script>
-  window.fbAsyncInit = function () {
-    // JavaScript SDK configuration and setup
-    FB.init({
-      appId:    '1540925303218662', 
-      cookie:   true, 
-      xfbml:    true, 
-      version:  'v21.0' 
-    });
-  };
+    <body>    
+    <button onclick="launchWhatsAppSignup()" 
+    style="background-color: #1877f2; border: 0; border-radius: 4px; color: #fff; cursor: pointer; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; height: 40px; padding: 0 24px;">
+    Login with Facebook
+    </button>
 
-  // Load the JavaScript SDK asynchronously
-  (function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+    <script>
+      window.fbAsyncInit = function () {
+        // JavaScript SDK configuration and setup
+        FB.init({
+          appId:    '1540925303218662', 
+          cookie:   true, 
+          xfbml:    true, 
+          version:  'v21.0' 
+        });
+      };
 
-  // // Facebook Login with JavaScript SDK
-  // function launchWhatsAppSignup() {
-  //   // Conversion tracking code
-  //   fbq && fbq('trackCustom', 'WhatsAppOnboardingStart', {appId: '817882813813657', feature: 'whatsapp_embedded_signup'});
-    
-    // Launch Facebook login
+      // Load the JavaScript SDK asynchronously
+      (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
 
-    FB.login(function (response) {
-      if (response.authResponse) {
-        const code = response.authResponse.code;
-             } else {
-        console.log('User cancelled login or did not fully authorize.');
-      }
-    }, {
-      config_id: '1227552545260431', // configuration ID 
-      response_type: 'code',   
-      override_default_response_type: true,
-      extras: {
-        setup: {
-            "business": {
-    	    "id": null,
-    	    "phone": {},
-    	    "address": {},
-    	    "timezone": null
-  		},	
-  	    "phone": {
-    	    "category": null,
-    	    "description": ""
-  		}
-        }
-      }
-    });
-  
-</script> 
+      // // Facebook Login with JavaScript SDK
+      // function launchWhatsAppSignup() {
+      //   // Conversion tracking code
+      //   fbq && fbq('trackCustom', 'WhatsAppOnboardingStart', {appId: '817882813813657', feature: 'whatsapp_embedded_signup'});
+        
+        // Launch Facebook login
 
-<script>
-  window.fbAsyncInit = function() {
-    // Initialize the Facebook SDK
-    FB.init({
-      appId: '1540925303218662', // Replace with your actual App ID
-      cookie: true,
-      xfbml: true,
-      version: 'v21.0'
-    });
-    console.log("Facebook SDK initialized");
-  };
+        FB.login(function (response) {
+          if (response.authResponse) {
+            const code = response.authResponse.code;
+                } else {
+            console.log('User cancelled login or did not fully authorize.');
+          }
+        }, {
+          config_id: '1227552545260431', // configuration ID 
+          response_type: 'code',   
+          override_default_response_type: true,
+          extras: {
+            setup: {
+                "business": {
+              "id": null,
+              "phone": {},
+              "address": {},
+              "timezone": null
+          },	
+            "phone": {
+              "category": null,
+              "description": ""
+          }
+            }
+          }
+        });
+      
+    </script> 
 
-  // Asynchronously load the Facebook SDK
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s);
-    js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-</script>
-</head>
+    <script>
+      window.fbAsyncInit = function() {
+        // Initialize the Facebook SDK
+        FB.init({
+          appId: '1540925303218662', // Replace with your actual App ID
+          cookie: true,
+          xfbml: true,
+          version: 'v21.0'
+        });
+        console.log("Facebook SDK initialized");
+      };
 
-</body>
+      // Asynchronously load the Facebook SDK
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+    </head>
+
+    </body>
 </html>
 
