@@ -1,4 +1,3 @@
-<script>
       window.fbAsyncInit = function() {
         // Initialize the Facebook SDK
         FB.init({
@@ -32,4 +31,3 @@
           }
         }, { scope: 'public_profile,email' }); // Request additional permissions as needed
       }
-    </script>  
