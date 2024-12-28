@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .product-description {
+            margin-bottom: 20px;
+        }
+
+        .plans {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .plan {
+            flex: 1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .plan:hover {
+            transform: scale(1.05);
+        }
+
+        .plan h3 {
+            margin: 0 0 10px;
+        }
+
+        .plan p {
+            margin: 10px 0;
+        }
+
+        .plan button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .plan button:hover {
+            background-color: #45a049;
+        }
+
+        .trial {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .trial button {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .trial button:hover {
+            background-color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Product Name</h1>
+    </header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="#">Pricing</a>
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+        <section class="product-description">
+            <h2>Product Description</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
+        </section>
+
+        <section class="plans">
+            <div class="plan">
+                <h3>Basic Plan</h3>
+                <p>$10/month</p>
+                <p>Includes basic features.</p>
+                <button>Choose Plan</button>
+            </div>
+            <div class="plan">
+                <h3>Pro Plan</h3>
+                <p>$30/month</p>
+                <p>Includes pro features.</p>
+                <button>Choose Plan</button>
+            </div>
+            <div class="plan">
+                <h3>Enterprise Plan</h3>
+                <p>Contact us for pricing</p>
+                <p>Custom features for enterprises.</p>
+                <button>Contact Us</button>
+            </div>
+        </section>
+
+        <section class="trial">
+            <h2>Try Before You Buy</h2>
+            <p>Sign up for a free trial to experience the product.</p>
+            <button>Start Free Trial</button>
+        </section>
+    </div>
+</body>
+</html>
