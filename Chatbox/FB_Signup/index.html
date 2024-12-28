@@ -1,22 +1,26 @@
-
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Facebook Signup</title>
-  </head>
-    <body>   
-    <nav>
-      <button onclick="launchWhatsAppSignup()" style="background-color: #1877f2; border: 0; border-radius: 4px; color: #fff; cursor: pointer; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; height: 40px; padding: 0 24px;">Login with Facebook</button>
-    </nav>
-    <p>Session info response:</p>
-  <pre id="session-info-response"></pre>
-  </br>
-  <p>SDK response:</p>
-  <pre id="sdk-response"></pre>
-    <script src="./script.js"></script>
-  </body>
-</html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Embedded Signup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="fb-root"></div>
 
+    <div class="container">
+        <h1>WhatsApp Embedded Signup</h1>
+        <button id="signup-btn">Launch WhatsApp Signup</button>
+
+        <p>Session Info Response:</p>
+        <pre id="session-info-response"></pre>
+
+        <p>SDK Response:</p>
+        <pre id="sdk-response"></pre>
+    </div>
+
+    <script src="https://connect.facebook.net/en_US/sdk.js" async defer crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
