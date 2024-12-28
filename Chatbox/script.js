@@ -16,3 +16,6 @@ document.querySelectorAll('.info-symbol').forEach(symbol => {
         symbol.setAttribute('title', symbol.title);
     });
 });
+
+// Placeholder for future interactivity
+console.log("Header script loaded.");
