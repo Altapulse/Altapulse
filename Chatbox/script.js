@@ -9,3 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Tooltip functionality for info symbols
+document.querySelectorAll('.info-symbol').forEach(symbol => {
+    symbol.addEventListener('mouseover', () => {
+        symbol.setAttribute('title', symbol.title);
+    });
+});

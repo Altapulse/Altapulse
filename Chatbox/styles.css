@@ -86,3 +86,93 @@ header {
 .trial button:hover {
     background-color: #1976D2;
 }
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.gallery {
+    width: 90%;
+    padding: 20px;
+    text-align: center;
+}
+
+.h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.pricing-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.plan {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 300px;
+    text-align: center;
+}
+
+.plan img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.plan h2 {
+    font-size: 1.5rem;
+    margin-top: 15px;
+}
+
+.plan p {
+    color: #555;
+    margin: 10px 0;
+}
+
+.plan ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+}
+
+.plan ul li {
+    margin: 8px 0;
+}
+
+.plan .price {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.plan .btn {
+    padding: 10px 20px;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn.green {
+    background-color: green;
+}
+
+.btn.gold {
+    background-color: gold;
+    color: #000;
+}
+
+.btn.blue {
+    background-color: blue;
+}
