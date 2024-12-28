@@ -24,61 +24,8 @@
     <title>Bootstrap Example</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- <script>
-  window.fbAsyncInit = function () {
-    // JavaScript SDK configuration and setup
-    FB.init({
-      appId:    '1540925303218662', 
-      cookie:   true, 
-      xfbml:    true, 
-      version:  'v21.0' 
-    });
-  };
-
-  // Load the JavaScript SDK asynchronously
-  (function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-
-  // // Facebook Login with JavaScript SDK
-  // function launchWhatsAppSignup() {
-  //   // Conversion tracking code
-  //   fbq && fbq('trackCustom', 'WhatsAppOnboardingStart', {appId: '817882813813657', feature: 'whatsapp_embedded_signup'});
-    
-    // Launch Facebook login
-    FB.login(function (response) {
-      if (response.authResponse) {
-        const code = response.authResponse.code;
-             } else {
-        console.log('User cancelled login or did not fully authorize.');
-      }
-    }, {
-      config_id: '1227552545260431', // configuration ID 
-      response_type: 'code',   
-      override_default_response_type: true,
-      extras: {
-        setup: {
-            "business": {
-    	    "id": null,
-    	    "phone": {},
-    	    "address": {},
-    	    "timezone": null
-  		},	
-  	    "phone": {
-    	    "category": null,
-    	    "description": ""
-  		}
-        }
-      }
-    });
-  
-</script> -->
-
-    <script>
+   // WhatsApp Intergration 
+    <!-- <script>
     window.fbAsyncInit = function() {
       // Initialize the Facebook SDK
       FB.init({
@@ -100,6 +47,38 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
   </script>
+   <script>
+    // Function to launch WhatsApp signup via Facebook Login
+    function launchWhatsAppSignup() {
+      // Check if FB is defined and initialized
+      if (typeof FB === 'undefined') {
+        console.error("Facebook SDK not loaded yet.");
+        return;
+      }
+
+      // Launch Facebook login
+      FB.login(function(response) {
+        if (response.authResponse) {
+          console.log('User logged in successfully');
+          const code = response.authResponse.code;
+          // Handle successful login here (e.g., send `code` to your backend if needed)
+        } else {
+          console.log('User cancelled login or did not fully authorize.');
+        }
+      }, {
+        config_id: '1227552545260431', // configuration ID
+        response_type: 'code',
+        override_default_response_type: true,
+        extras: {
+          setup: {
+            "business": { "id": null, "phone": {}, "address": {}, "timezone": null },
+            "phone": { "category": null, "description": "" }
+          }
+        }
+      });
+    }
+  </script> -->
+
   </head>
   
   <body id="top">
@@ -116,11 +95,12 @@
               <!-- <li class="nav-item"><a class="nav-link smooth-scroll" href="#gallery">Gallery</a></li> -->
               <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">Contact</a></li>
 
-            <button 
+            //WhatsApp intergration signup                
+            <!-- <button 
               onclick="launchWhatsAppSignup()" 
               style="background-color: #1877f2; border: 0; border-radius: 4px; color: #fff; cursor: pointer; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; height: 40px; padding: 0 24px;">
               Login with Facebook
-            </button>
+            </button> -->
           </ul>
           </div>
                  
@@ -643,37 +623,6 @@
     <script src="scripts/aos.js?ver=1.2.0"></script>
     <script src="scripts/ekko-lightbox.min.js?ver=1.2.0"></script>
     <script src="scripts/main.js?ver=1.2.0"></script>
-    <script>
-    // Function to launch WhatsApp signup via Facebook Login
-    function launchWhatsAppSignup() {
-      // Check if FB is defined and initialized
-      if (typeof FB === 'undefined') {
-        console.error("Facebook SDK not loaded yet.");
-        return;
-      }
-
-      // Launch Facebook login
-      FB.login(function(response) {
-        if (response.authResponse) {
-          console.log('User logged in successfully');
-          const code = response.authResponse.code;
-          // Handle successful login here (e.g., send `code` to your backend if needed)
-        } else {
-          console.log('User cancelled login or did not fully authorize.');
-        }
-      }, {
-        config_id: '1227552545260431', // configuration ID
-        response_type: 'code',
-        override_default_response_type: true,
-        extras: {
-          setup: {
-            "business": { "id": null, "phone": {}, "address": {}, "timezone": null },
-            "phone": { "category": null, "description": "" }
-          }
-        }
-      });
-    }
-  </script>
-
+   
   </body>
 </html>
