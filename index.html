@@ -804,6 +804,12 @@
         <script type="text/javascript" src="js/components/google-map.min.js"></script>
         <script type="text/javascript" src="js/components/wow.min.js"></script>
         <!--========== END JAVASCRIPTS ==========-->
+        <script>
+  if (window.location.search.includes('srsltid')) {
+    const cleanUrl = window.location.origin + window.location.pathname;
+    window.history.replaceState({}, document.title, cleanUrl);
+  }
+</script>
 
     </body>
     <!-- End Body -->
