@@ -2404,3 +2404,12 @@ fieldset[disabled] .s-btn {
   color: #0056b3; /* Blue on hover */
 }
 
+
+/* Styling for the banner heading (The title you requested) */
+.banner-heading {
+    /* Now relying on your site's default H2 styles for font, color, and size. */
+    text-align: center;
+    font-weight: bold;
+    margin-top: 0; 
+    margin-bottom: 1.5rem; /* Space below the heading */
+}
