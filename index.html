@@ -288,14 +288,14 @@
 
         <!-- Partner Highlight-->
         <div class="partner-section-template">
-        <h2 class="banner-heading">An Official Microsoft Partner</h2>
+        <h2 class="banner-heading">Our Beloved Partners</h2>
 
         <!-- 
           Your existing embed code. 
           The CSS styles from the <head> will apply to this div automatically.
         -->
         <!-- Embed on page - Microsoft Authorized Refurbisher -->
-        <div id="dccn-a1f6d015-fd45-4160-a503-48807c52c429"></div>
+        <!-- <div id="dccn-a1f6d015-fd45-4160-a503-48807c52c429"></div>
         <script type='text/javascript'>
             (function() {
                 const scriptId = 'a1f6d015-fd45-4160-a503-48807c52c429';
@@ -309,8 +309,156 @@
                 document.body.append(script);
             })();
         </script>
-        </div>
+        </div> -->
+        <!-- New banner 10/23/2025 -->
+        <div id="dccn-7eb7ad28-bd64-468d-be6f-1ab8f83662db"></div>
+<script type='text/javascript'>
+    (function() {
+        const scriptId = '7eb7ad28-bd64-468d-be6f-1ab8f83662db';
+        const bannerHeight = 90; /* Override banner height */
+        const bannerWidth = 728; /* Override banner witdh */
+ 
+        /* For some content with no html, inline mode is not supported. */
+        const embedType = 'banner'; /* Set embed type: inline or banner. */
+ 
+        const script = document.createElement('script');
+        script.defer = true;
+        script.src = `https://dmc.partner.microsoft.com/dccn/api/embedded-campaigns/js?id=${scriptId}&height=${bannerHeight}&width=${bannerWidth}&embedType=${embedType}`;
+        document.body.append(script);
+    })();
+</script>
+ 
         <!--End Partner Highlight-->
+
+        <!--All Partner referal link-->
+         <div class="banner-container" id="bannerContainer">
+        <!-- Monday.com -->
+        <div class="banner-slide active monday-bg" data-index="0">
+            <div class="partner-logo">Monday.com</div>
+            <div class="partner-description">
+                Transform the way your team works with Monday.com's Work OS. Manage projects, workflows, and team collaboration all in one visual platform.
+            </div>
+            <a href="https://try.monday.com/altapulse" target="_blank" class="register-btn">Click Here to Register</a>
+        </div>
+
+        <!-- GoZen -->
+        <div class="banner-slide gozen-bg" data-index="1">
+            <div class="partner-logo">GoZen</div>
+            <div class="partner-description">
+                GoZen—A unified suite for marketing, sales, and customer support. An AI-powered platform that gives you everything you need to grow your business—all in one place.
+            </div>
+            <a href="https://gozen.io/?via=altapulse" target="_blank" class="register-btn">Click Here to Register</a>
+        </div>
+
+        <!-- Salesforce -->
+        <div class="banner-slide salesforce-bg" data-index="2">
+            <div class="partner-logo">Salesforce</div>
+            <div class="partner-description">
+                Connect with Altapulse on Salesforce AppExchange. Discover powerful integrations and solutions to supercharge your CRM and business operations.
+            </div>
+            <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=a0N4V00000GYjN4UAL" target="_blank" class="register-btn">Click Here to Register</a>
+        </div>
+
+        <!-- Wix -->
+        <div class="banner-slide wix-bg" data-index="3">
+            <div class="partner-logo">Wix</div>
+            <div class="partner-description">
+                Altapulse is available for hire in the Wix Marketplace. View their profile, reviews, portfolio and rates, and contact them about working on your project.
+            </div>
+            <a href="https://www.wix.com/studio/community/partners/altapulse" target="_blank" class="register-btn">Click Here to Register</a>
+        </div>
+
+        <!-- Microsoft -->
+        <div class="banner-slide microsoft-bg" data-index="4">
+            <div class="partner-logo">Microsoft</div>
+            <div class="partner-description">
+                Find Altapulse on Microsoft AppSource. Explore enterprise-grade solutions and integrations for your Microsoft ecosystem.
+            </div>
+            <a href="https://appsource.microsoft.com/en-us/marketplace/partner-dir/ef289873-662f-4df8-b7f1-57ca74b8444e/overview" target="_blank" class="register-btn">Click Here to Register</a>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <div class="nav-arrow" id="prevBtn">‹</div>
+            <div class="nav-dots" id="dotsContainer">
+                <div class="dot active" data-index="0"></div>
+                <div class="dot" data-index="1"></div>
+                <div class="dot" data-index="2"></div>
+                <div class="dot" data-index="3"></div>
+                <div class="dot" data-index="4"></div>
+            </div>
+            <div class="nav-arrow" id="nextBtn">›</div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.banner-slide');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+        let autoPlayInterval;
+
+        function showSlide(index) {
+            // Remove active class from all
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            // Wrap around
+            if (index >= totalSlides) currentSlide = 0;
+            else if (index < 0) currentSlide = totalSlides - 1;
+            else currentSlide = index;
+
+            // Add active class
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function startAutoPlay() {
+            stopAutoPlay();
+            autoPlayInterval = setInterval(nextSlide, 10000); // 10 seconds
+        }
+
+        function stopAutoPlay() {
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+            }
+        }
+
+        // Event listeners
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            nextSlide();
+            startAutoPlay(); // Reset timer
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            prevSlide();
+            startAutoPlay(); // Reset timer
+        });
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                showSlide(parseInt(dot.dataset.index));
+                startAutoPlay(); // Reset timer
+            });
+        });
+
+        // Start auto-play
+        startAutoPlay();
+
+        // Pause on hover
+        document.getElementById('bannerContainer').addEventListener('mouseenter', stopAutoPlay);
+        document.getElementById('bannerContainer').addEventListener('mouseleave', startAutoPlay);
+    </script>
+
+        <!--End All Partner referal link-->
 
         <!-- Subscribe -->
         <div class="js__parallax-window" style="background: url(img/1920x1080/07.jpg) 50% 0 no-repeat fixed;">
